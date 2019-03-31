@@ -225,7 +225,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableHighlight,TextInput ,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class MailRegister extends Component{
+export default class MailLogin extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -246,23 +246,9 @@ export default class MailRegister extends Component{
             <View style={styles.container}>
     
                 <View style={styles.title}>
-                    <Text style={styles.registerText}>أو التسجيل عبر البريد الإلكتروني</Text>
+                    <Text style={styles.registerText}>أو الدخول عبر البريد الإلكتروني</Text>
                 </View>
     
-                <View style={styles.fullName}>
-                    <View style={styles.fullNameLabel}>
-                        <Text>الاسم بالكامل</Text>
-                    </View>
-                    <View style={styles.fullNameInput}>
-                        <TextInput
-                            style={{height: 40,  borderWidth: 0, marginRight:8}}
-                            placeholder = "كما سيظهر بالشكل"
-                            placeholderTextColor = "#525252" 
-                            onChangeText={(fullNameText) => this.setState({fullNameText})}
-                            value={this.state.fullNameText}
-                        />
-                    </View>
-                </View>
         
                 <View style={styles.mail}>
                     <View style={styles.mailLabel}>
@@ -295,12 +281,22 @@ export default class MailRegister extends Component{
                     </View>
                 </View>
         
-                <TouchableOpacity style={styles.newAccount} onPress={this.handleSend}>
-                    <Text style={styles.newAccountText}>إنشاء حساب جديد</Text>
+        
+                <TouchableOpacity style={styles.login}>
+                    <Text style={styles.loginText}> تسجيل الدخول</Text>
                 </TouchableOpacity>
-    
+
+                <TouchableOpacity style={styles.newAccount}>
+                    <Text style={styles.newAccountText}> حساب جديد</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.forgetPassword}>
+                    <Text style={styles.forgetPasswordText}> نسيت كلمة السر؟</Text>
+                </TouchableOpacity>
+
+
                 <View style={styles.policy}>
-                    <Text style={styles.policyText}>By tapping "create new account" . 
+                    <Text style={styles.policyText}>By tapping "Login" . 
                         you agree the 
                         <Text style={styles.colored}>  Trerms of Service </Text>
                          and
@@ -324,39 +320,14 @@ const styles = StyleSheet.create({
         flex: 6,
         
     },
+    registerText:{
+        fontSize:17, 
+    },
 
     title:{
         flex: 1,
         justifyContent:"center",
         alignItems:"center",
-    },
-
-    fullName:{
-        flex: 1,
-        flexDirection:"row-reverse",
-        justifyContent:"center",
-        alignItems:"center",
-        borderColor: 'gray', 
-        borderWidth: 1
-
-
-
-    },
-
-    fullNameLabel:{
-        flex:1,
-        alignItems:"flex-end",
-        justifyContent:"center",
-        height: 40,
-        marginRight:8
-        
-    },
-
-    fullNameInput:{
-        flex:2,
-        flexDirection:"row-reverse",
-        width:500
-        
     },
 
     mail:{
@@ -366,11 +337,7 @@ const styles = StyleSheet.create({
         flexDirection:"row-reverse",
         borderColor: 'gray', 
         borderWidth: 1,
-        borderTopWidth:0,
         borderBottomWidth:0,
-
-
-
     },
 
     mailLabel:{
@@ -419,15 +386,37 @@ const styles = StyleSheet.create({
 
     },
 
-    newAccount:{
+    login:{
         flex: 1,
         justifyContent:"center",
         alignItems:"center",
         backgroundColor:"yellow",
     },
 
-    newAccountText:{
+    loginText:{
         fontSize:20
+    },
+
+    newAccount:{
+        flex: 1,
+        justifyContent:"center",
+        alignItems:"center",
+    },
+
+    newAccountText:{
+        fontSize:20,
+        color:"#21B1F5"
+    },
+
+    forgetPassword:{
+        flex: 1,
+        justifyContent:"center",
+    },
+
+    forgetPasswordText:{
+        fontSize:20,
+        color:"#21B1F5",
+        textDecorationLine: "underline"
     },
 
     policy:{

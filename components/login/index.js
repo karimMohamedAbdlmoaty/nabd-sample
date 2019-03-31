@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { View ,Text } from 'react-native';
 import Header from "./Header"
-import SocialRegister from "./SocialRegister"
-import MailRegister from "./MailRegister"
+import SocialLogin from "./SocialLogin"
+import MailLogin from "./MailLogin"
 
-const Register= ()=>{
+const Login= ()=>{
     return(
         <View style={{ flex: 1, justifyContent:"center"}}>
             <Header />
-            <SocialRegister />
-            <MailRegister/>
+            <SocialLogin />
+            <MailLogin/>
         </View>
 
     );
   
 }
 
-export default Register;
+export default Login;

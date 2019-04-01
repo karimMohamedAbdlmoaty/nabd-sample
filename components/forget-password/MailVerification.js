@@ -34,7 +34,7 @@ export default class MailVerification extends Component{
         
                     <View style={styles.mailInput}>
                         <TextInput
-                            style={{height: 40,  borderWidth: 0, marginRight:8}}
+                            style={{  borderWidth: 0, marginRight:8}}
                             placeholder = "user@domain.com"
                             placeholderTextColor = "#525252" 
                             // placeholderStyle={{flexDirection:"column-reverse",}}
@@ -64,21 +64,24 @@ const styles = StyleSheet.create({
         marginRight:20,
         marginLeft:20,
         flex: 1,
-        
     },
 
     title:{
         flex: 1,
         justifyContent:"center",
-        alignItems:"center",
+        alignItems:"flex-end"
+    },
+
+    registerText:{  
+        marginRight:8
     },
 
     mail:{
-        flex: 1,
+        // flex: 1,
         justifyContent:"center",
         alignItems:"center",
         flexDirection:"row-reverse",
-        borderColor: 'gray', 
+        borderColor: 'grey', 
         borderWidth: 1,
     },
 
@@ -92,24 +95,25 @@ const styles = StyleSheet.create({
     },
 
     mailInput:{
-        flex: 2,
+        flex: 1,
         flexDirection:"row-reverse",
+        
     },
 
     continue:{
         flex: 5,
-        marginTop:30,
+        marginTop:10,
         width:335,
     },
 
     continueText:{
-        flex: .12,
+        flex: .08,
         fontSize:20,
         backgroundColor:"#FFE902",
         flexDirection:"row",
         justifyContent:"center",
         alignItems:"center",
-        paddingTop: 18,
+        paddingTop: 8,
         paddingLeft:133
     },
 })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View ,Text ,StyleSheet} from 'react-native';
+import { View ,Text ,StyleSheet,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconTwo from 'react-native-vector-icons/FontAwesome5';
 
@@ -7,30 +7,30 @@ const FooterBar= ()=>{
     return(
         <View style={styles.container}>
 
-            <View style={styles.latestNews}>
+            <TouchableOpacity style={styles.latestNews}>
                 <IconTwo name="globe-americas" size={30} color="#418BBF" />
                 <Text style={styles.latestNewsText}>آخر الأخبار</Text>
-            </View>
+            </TouchableOpacity>
 
-            <View style={styles.sport}>
+            <TouchableOpacity style={styles.sport}>
                 <Icon name="ios-football" size={30} color="#929292" />
                 <Text style={styles.underText}>رياضة </Text>
-            </View>
+            </TouchableOpacity>
 
-            <View style={styles.myResources}>
+            <TouchableOpacity style={styles.myResources}>
                 <Icon style={styles.myResourcesIcon} name="ios-list" size={30} color="#929292" />
                 <Text style={styles.underText}> مصادري</Text>
-            </View>
+            </TouchableOpacity>
 
-            <View style={styles.nabdMagazine}>
+            <TouchableOpacity style={styles.nabdMagazine}>
                 <IconTwo name="book-open" size={30} color="#929292" />
                 <Text style={styles.underText}>مجلات نبض</Text>
-            </View>
+            </TouchableOpacity>
 
-            <View style={styles.myAccount}>
+            <TouchableOpacity style={styles.myAccount}>
                 <Icon name="ios-headset" size={30} color="#929292" />
                 <Text style={styles.underText}> حسابي</Text>
-            </View>
+            </TouchableOpacity>
             
         </View>
 

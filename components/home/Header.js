@@ -25,9 +25,9 @@ const Header= ()=>{
             <Text style={styles.newAccountText}>آخر الأخبار</Text>
         </View>
 
-        <View style={styles.search}>
+        <TouchableOpacity style={styles.search}>
             <Icon style={styles.iconItem} name="ios-search" size={30} color="white" />
-        </View>
+        </TouchableOpacity>
 
       </View>
     );

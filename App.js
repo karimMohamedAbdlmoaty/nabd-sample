@@ -5,6 +5,8 @@ import Register from "./components/registration";
 import ChooseResources from "./components/choose-resources";
 import ForgetPassword from "./components/forget-password";
 import HomePage from './components/home';
+import NewsItem from "./components/NewsItem";
+import {Router} from "./components/Router";
 
 
 export default class App extends Component {
@@ -15,7 +17,8 @@ export default class App extends Component {
         {/* <Login /> */}
         {/* <ChooseResources /> */}
         {/* <ForgetPassword /> */}
-        <HomePage />
+        {/* <HomePage /> */}
+        <Router />
       </View>
     );
   }

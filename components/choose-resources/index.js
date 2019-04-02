@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { View , Text, StyleSheet ,TouchableOpacity } from 'react-native';
 import Header from "./Header"
 
-const ChooseResources= ()=>{
+const ChooseResources= ({navigation})=>{
+    handleLogin = ()=>{
+        navigation.navigate('Login')
+    };
     return(
         <View style={styles.container}>
             <Header />
@@ -23,7 +26,7 @@ const ChooseResources= ()=>{
                 </View>
 
                 <View style={styles.login}>
-                    <TouchableOpacity><Text style={styles.loginText}>تسجيل الدخول (لاسترجاع مصادرك ) </Text></TouchableOpacity>
+                    <TouchableOpacity onPress={this.handleLogin}><Text style={styles.loginText}>تسجيل الدخول (لاسترجاع مصادرك ) </Text></TouchableOpacity>
                 </View>
                 {/* </View> */}
 

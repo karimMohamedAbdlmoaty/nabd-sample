@@ -1,6 +1,7 @@
 // import React, {Component} from 'react';
 // import {Platform, StyleSheet, Text, View,TouchableHighlight,TextInput} from 'react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
+// import { Router } from "../Router";
 
 // const MailRegiter= ()=>{
 //     return(
@@ -225,23 +226,11 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableHighlight,TextInput ,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class MailLogin extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            fullNameText: "",
-            mailText: "",
-            passwordText: ""
+const MailLogin= ({navigation})=>{
+        handleHome = ()=>{
+            navigation.navigate('Home')
 
         }
-        this.handleSend = this.handleSend.bind(this);
-    }
-
-    handleSend(){
-        console.log("dfhdfhdfh")
-
-    }
-    render(){
         return(
             <View style={styles.container}>
     
@@ -261,8 +250,8 @@ export default class MailLogin extends Component{
                             placeholder = "user@domain.com"
                             placeholderTextColor = "#525252" 
                             // placeholderStyle={{flexDirection:"column-reverse",}}
-                            onChangeText={(mailText) => this.setState({mailText})}
-                            value={this.state.mailText}
+                            // onChangeText={(mailText) => this.setState({mailText})}
+                            // value={this.state.mailText}
                         />
                     </View>
                 </View>
@@ -275,14 +264,14 @@ export default class MailLogin extends Component{
                     <View style={styles.passwordInput}>
                         <TextInput
                             style={{height: 40, borderWidth: 0, marginRight:8}}
-                            onChangeText={(passwordText) => this.setState({passwordText})}
-                            value={this.state.passwordText}
+                            // onChangeText={(passwordText) => this.setState({passwordText})}
+                            // value={this.state.passwordText}
                         />
                     </View>
                 </View>
         
         
-                <TouchableOpacity style={styles.login}>
+                <TouchableOpacity style={styles.login} onPress={this.handleHome}>
                     <Text style={styles.loginText}> تسجيل الدخول</Text>
                 </TouchableOpacity>
 
@@ -307,9 +296,11 @@ export default class MailLogin extends Component{
             </View>
         
         
-        )
-    }
+        );
+    
 };
+
+export default MailLogin;
 
 
 const styles = StyleSheet.create({

@@ -6,6 +6,10 @@ const ChooseResources= ({navigation})=>{
     handleLogin = ()=>{
         navigation.navigate('Login')
     };
+
+    handleNewsItem = ()=>{
+        navigation.navigate('NewsItem')
+    };
     return(
         <View style={styles.container}>
             <Header />
@@ -22,7 +26,7 @@ const ChooseResources= ({navigation})=>{
 
                 {/* <View style={styles.goToResources}> */}
                 <View style={styles.choose}>
-                    <TouchableOpacity><Text style={styles.chooseText}>اختيار مصادرك</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={this.handleNewsItem}><Text style={styles.chooseText}>اختيار مصادرك</Text></TouchableOpacity>
                 </View>
 
                 <View style={styles.login}>

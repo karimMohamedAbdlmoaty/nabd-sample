@@ -4,8 +4,15 @@ import Login from "./components/login";
 import Register from "./components/registration";
 import ChooseResources from "./components/choose-resources";
 import ForgetPassword from "./components/forget-password";
-import HomePage from './components/home';
 import NewsItem from "./components/NewsItem";
+import Resources from "./components/resources";
+
+import HomePage from './components/home';
+import MyResources from "./components/myResources";
+import MyAccount from "./components/myAccount";
+import Sports from "./components/sports";
+import Magazines from "./components/magazines";
+
 import {Router} from "./components/Router";
 
 
@@ -18,6 +25,12 @@ export default class App extends Component {
         {/* <ChooseResources /> */}
         {/* <ForgetPassword /> */}
         {/* <HomePage /> */}
+        {/* <NewsItem /> */}
+        {/* <Resources /> */}
+        {/* <MyResources /> */}
+        {/* <MyAccount /> */}
+        {/* <Sports /> */}
+        {/* <Magazines /> */}
         <Router />
       </View>
     );

@@ -1,24 +1,21 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 
 const Header= ({navigation})=>{
-    handleHome = ()=>{
-        navigation.navigate('TabNavigation')
-
-    }
 
     return(
       <View style={styles.container}>
         <View style={styles.save}>
-            <TouchableOpacity style={styles.saveItem} onPress={this.handleHome}>
-                <Text style={styles.saveItemText}>حفظ</Text>
-            </TouchableOpacity>
+            <TouchableOpacity style={styles.saveIcon}><Icon name="ios-arrow-back" size={30} color="white" /></TouchableOpacity>
         </View>
         <View style={styles.newAccount}>
-            <Text style={styles.newAccountText}>اختر مصادرك</Text>
+            <Text style={styles.newAccountText}>مصر</Text>
         </View>
-        <View style={styles.empty}></View>
+        <View style={styles.empty}>
+            <TouchableOpacity><Icon name="ios-search" size={30} color="white" /></TouchableOpacity>
+        </View>
       </View>
     );
 }
@@ -36,26 +33,19 @@ const styles = StyleSheet.create({
         marginTop: 20,
         height: 50,
         justifyContent:"center",
-        marginLeft:22,
-        justifyContent:"center",
-        alignItems: "center",
+        alignItems: "flex-start",
+        // backgroundColor:"green",
+        // marginLeft:20
+
 
     },
-    saveItem:{
-        backgroundColor:"#FCE427",
-        width:85,
-        height:36,
-        justifyContent:"center",
-        alignItems: "center",
-        borderRadius: 10,
-
-
-
+    saveIcon:{
+        marginLeft:25
     },
     saveItemText:{
         fontSize:18,
         fontWeight:"500",
-        color:"#5A4C2A"
+        color:"white"
     },
     
     newAccount:{
@@ -64,8 +54,8 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         alignItems: "center",
         marginTop: 20,
-        height: 50
-
+        height: 50,
+        // backgroundColor:"red",
 
     },
     newAccountText:{
@@ -76,8 +66,10 @@ const styles = StyleSheet.create({
     empty: {
         flex:1,
         marginTop: 20,
-        height: 50
-
+        height: 50,
+        // backgroundColor:"blue",
+        justifyContent:"center",
+        alignItems: "center",
 
     }
 

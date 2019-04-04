@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View ,Text ,StyleSheet ,ScrollView ,Image ,FlatList,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo'
 
-const forFlatList = ["dg"];
+const forFlatList = ["dg", "dd", "sdfd", "ser", "ser", "ser", "seer"];
 
 const MainContent= ()=>{
     return(
@@ -55,7 +55,7 @@ const MainContent= ()=>{
 
 
 
-                        <View style={styles.newsItem}>
+                        {/* <View style={styles.newsItem}>
                             <View style={styles.newsItemHeader}>
                                 <View style={styles.newsTime}>
                                     <Text style={styles.newsTimeText}>منذ 15 دقيقة</Text>
@@ -79,7 +79,7 @@ const MainContent= ()=>{
                             <TouchableOpacity style={styles.newsItemShow}>
                                     <Icon style={styles.settingsIcon} name="share-alternative" size={25} color="#2C8BC9" />
                             </TouchableOpacity>
-                        </View>
+                        </View> */}
                     </View>
                     }
                 />

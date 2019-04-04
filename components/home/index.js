@@ -10,7 +10,7 @@ const HomePage= ()=>{
 
             <Header />
             <MainContent />
-            <FooterBar />
+            {/* <FooterBar /> */}
 
         </View>
 

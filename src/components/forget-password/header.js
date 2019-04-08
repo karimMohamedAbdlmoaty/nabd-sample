@@ -3,11 +3,11 @@ import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
 
 
-const Header= ()=>{
+const Header= ({navigation})=>{
     return(
       <View style={styles.container}>
         <View style={styles.icon}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Icon style={styles.iconItem} name="ios-arrow-back" size={30} color="white" />
             </TouchableOpacity>
         </View>

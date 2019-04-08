@@ -4,10 +4,11 @@ import Header from "./header"
 import SocialLogin from "./social-login"
 import MailLogin from "./mail-login"
 
-const Login = ({navigation})=>{
+const Login = ({navigation,prev})=>{
+    // onPress={() => this.props.navigation.goBack()}
     return(
         <View style={{ flex: 1, justifyContent:"center"}}>
-            <Header />
+            <Header navigation={navigation} prev={prev}/>
             <SocialLogin />
             <MailLogin navigation={navigation}/> 
         </View>

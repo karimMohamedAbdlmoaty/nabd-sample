@@ -1,9 +1,7 @@
 import React from 'react';
 import { createStackNavigator , createTabNavigator } from 'react-navigation';
 import ChooseResources from "./src/components/choose-resources";
-import login from "./src/components/login";
 import NewsItem from "./src/components/news-item";
-
 import Home from "./src/components/home";
 import MyResources from "./src/components/my-resources";
 import MyAccount from "./src/components/my-account";
@@ -11,8 +9,40 @@ import Sports from "./src/components/sports";
 import Magazines from "./src/components/magazines";
 import Icon from 'react-native-vector-icons/Ionicons'
 import IconTwo from 'react-native-vector-icons/FontAwesome5';
-import {Register} from "./src/auth";
+import Resources from "./src/components/resources";
 
+// import Login from "./src/components/login";Login
+import {Register} from "./src/auth";
+import {Login} from "./src/auth";
+import ForgetPassword from "./src/components/forget-password";
+
+
+const sharedRoutes = createStackNavigator(
+    {
+        Login: {
+            screen: Login,
+            navigationOptions: {
+                title: "Login",
+            },
+        },
+        Register: {
+            screen: Register,
+            navigationOptions: {
+                title: "Register",
+            },
+        },
+        ForgetPassword: {
+            screen: ForgetPassword,
+            navigationOptions: {
+                title: "ForgetPassword",
+            },
+        },
+    },
+    {
+        // mode: 'modal',
+        headerMode:"none",
+    }
+);
 
 
 const HomeStackNavigator = createStackNavigator(
@@ -132,8 +162,6 @@ const TabNavigation = createTabNavigator({
         },
     },
 
-
-
     MyAccountStackNavigator:{
         screen: MyAccountStackNavigator,
         navigationOptions: {
@@ -158,28 +186,37 @@ const TabNavigation = createTabNavigator({
 
 })
 
-export const Router = createStackNavigator(
+// export const ChooseResourcesNavigator = createStackNavigator(
+//     {
+//         ChooseResources :{
+//             screen: ChooseResources,
+//             navigationOptions: {
+//                 title: "ChooseResources",
+//             },
+//         },
+//     },
+//     {
+//         Resources :{
+//             screen: Resources,
+//             navigationOptions: {
+//                 title: "Resources",
+//             },
+//         },
+//     },
+//     {
+//         headerMode:"none"
+//     }
+// )
+
+const MainNavigator = createStackNavigator(
     {
         ChooseResources:{
             screen: ChooseResources,
             navigationOptions: {
                 title: "ChooseResources",
+
             },
 
-        },
-
-        Login:{
-            screen: login,
-            navigationOptions: {
-                title: "Login",
-            },
-        },
-
-        Register:{
-            screen: Register,
-            navigationOptions: {
-                title: "Register",
-            },
         },
 
         TabNavigation:{
@@ -196,10 +233,61 @@ export const Router = createStackNavigator(
             },
         },
 
+        Resources:{
+            screen: Resources,
+            navigationOptions: {
+                title: "Resources",
+            },
+        },
 
+       
     },
     {
-        headerMode:"none"
+        headerMode:"none",
     }
 )
+
+export const Router = createStackNavigator(
+    {
+        MainNavigator:{
+            screen: MainNavigator,
+            navigationOptions: {
+                title: "MainNavigator",
+            },
+        },
+
+        sharedRoutes:{
+            screen: sharedRoutes,
+            navigationOptions: {
+                title: "sharedRoutes",   
+            },
+        },
+
+        // Login: {
+        //     screen: login,
+        //     navigationOptions: {
+        //         title: "login",
+        //     },
+        // },
+        // Register: {
+        //     screen: Register,
+        //     navigationOptions: {
+        //         title: "Register",
+        //     },
+        // },
+        // ForgetPassword: {
+        //     screen: ForgetPassword,
+        //     navigationOptions: {
+        //         title: "ForgetPassword",
+        //     },
+        // },
+
+       
+    },
+    {
+        headerMode:"none",
+        mode: 'modal',
+    }
+)
+
 

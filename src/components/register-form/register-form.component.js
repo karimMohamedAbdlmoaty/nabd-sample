@@ -5,29 +5,33 @@ import { styles } from "./register-form.style";
 
 
 
-export const RegisterForm = ()=>{
+export const RegisterForm = ({name , mail ,password})=>{
     return (
         <View style={styles.container}>
 
             {/* <View style={styles.titleText}>
                 <Text>{title}</Text>
             </View> */}
+ {/* name={true} mail={true} password={true} */}
 
-
-            <Input label="الاسم بالكامل"
+            {name && <Input label="الاسم بالكامل"
                 placeHolderText="كما سيظهر بالشكل"
                 borderBottomValue={0}
-            />
-            <Input label="البريد الإلكتروني"
+            />}
+
+            {mail && <Input label="البريد الإلكتروني"
                 placeHolderText= "user@domain.com"
                 borderBottomValue={0}
-            />
-            <Input label="كلمة السر"
+            />}
+
+            {password && <Input label="كلمة السر"
                 placeHolderText=" "
                 borderBottomValue={1}
-            />
+            />}
+
 
         </View>
         
     );
 }
+

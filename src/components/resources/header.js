@@ -8,7 +8,7 @@ const Header= ({navigation})=>{
     return(
       <View style={styles.container}>
         <View style={styles.save}>
-            <TouchableOpacity style={styles.saveIcon}><Icon name="ios-arrow-back" size={30} color="white" /></TouchableOpacity>
+            <TouchableOpacity style={styles.saveIcon} onPress={() => navigation.goBack()}><Icon name="ios-arrow-back" size={30} color="white" /></TouchableOpacity>
         </View>
         <View style={styles.newAccount}>
             <Text style={styles.newAccountText}>مصر</Text>

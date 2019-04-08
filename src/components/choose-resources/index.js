@@ -4,7 +4,7 @@ import Header from "./header"
 
 const ChooseResources= ({navigation})=>{
     handleLogin = ()=>{
-        navigation.navigate('Login')
+        navigation.navigate('Login',{prev:"ChooseResources"})
     };
 
     handleNewsItem = ()=>{

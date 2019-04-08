@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
 
-
-const Header= ()=>{
+// onPress={() => this.props.navigation.goBack()}
+const Header= ({navigation})=>{
+    console.log("prev",navigation.state.params.prev)
     return(
       <View style={styles.container}>
         <View style={styles.icon}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate(navigation.state.params.prev)}>
                 <Icon style={styles.iconItem} name="ios-close" size={40} color="white" />
             </TouchableOpacity>
         </View>

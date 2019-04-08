@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     },
 
     colored:{
-        color:"#467195"
+        color:"#21B1F5"
     }
 })
       

@@ -6,12 +6,13 @@ export const styles = StyleSheet.create({
         width:335,
         marginRight:20,
         marginLeft:20,
-        flex: 3,
+        // flex: 1,
         // backgroundColor:"red",
         borderColor: 'gray', 
         borderTopWidth: 1,
         borderRightWidth: 1,
         borderLeftWidth: 1,
+        height: 60,
     },
 
     fullName:{
@@ -25,9 +26,9 @@ export const styles = StyleSheet.create({
         flex:1,
         alignItems:"flex-end",
         justifyContent:"center",
-        height: 125,
-        // marginRight:8,
-        // backgroundColor:"red",
+        // height: 125,
+        marginRight:8,
+        // backgroundColor:"blue",
         width:120,
 
     },

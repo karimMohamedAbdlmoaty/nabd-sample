@@ -4,7 +4,12 @@ import Header from "./header"
 import Icon from 'react-native-vector-icons/Ionicons'
 
 
+
 const NewsItem= ({navigation})=>{
+    handleResources = ()=>{
+        navigation.navigate('Resources')
+    };
+    
     const sourcesData= [
         {sourceLabel:"مصر"          , sourceIcon:"ios-flag" },
         {sourceLabel:"مصادر عالمية" , sourceIcon:"ios-globe" },
@@ -27,7 +32,7 @@ const NewsItem= ({navigation})=>{
                     data={sourcesData}
                     renderItem={({item}) => 
                         <View style={styles.sourceItem}>
-                            <View style={styles.iconItem}><TouchableOpacity><Icon name="ios-arrow-back" size={20} color="#353333" /></TouchableOpacity></View>
+                            <View style={styles.iconItem}><TouchableOpacity onPress={this.handleResources}><Icon name="ios-arrow-back" size={20} color="#353333" /></TouchableOpacity></View>
                             <View style={styles.iconText}><Text style={styles.iconTextContent}>{item.sourceLabel}</Text></View>           
                             <View style={styles.iconItemTwo}><Icon name={item.sourceIcon} size={30} color="red" /></View>
                         </View>

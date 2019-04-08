@@ -5,7 +5,7 @@ import Header from "./header"
 const Login = ({navigation})=>{
     return(
         <View style={{ flex: 1, justifyContent:"center"}}>
-            <Header />
+            <Header navigation={navigation}/>
             <Text style={{ flex: 1, justifyContent:"center"}}>sports</Text>
 
         </View>

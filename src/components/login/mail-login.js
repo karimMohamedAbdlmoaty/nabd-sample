@@ -4,12 +4,19 @@ import {Platform, StyleSheet, Text, View,TouchableHighlight,TextInput ,Touchable
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const MailLogin= ({navigation})=>{
+
     handleHome = ()=>{
         navigation.navigate('TabNavigation')
 
     }
+
     handleRegister = ()=>{
         navigation.navigate('Register')
+
+    }
+    
+    handleForgetPassword = ()=>{
+        navigation.navigate('ForgetPassword')
 
     }
     return(
@@ -60,7 +67,7 @@ const MailLogin= ({navigation})=>{
                     <Text style={styles.newAccountText}> حساب جديد</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.forgetPassword}>
+                <TouchableOpacity style={styles.forgetPassword} onPress={this.handleForgetPassword}>
                     <Text style={styles.forgetPasswordText}> نسيت كلمة السر؟</Text>
                 </TouchableOpacity>
 

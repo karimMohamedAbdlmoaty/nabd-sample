@@ -5,9 +5,9 @@ export const styles = StyleSheet.create({
         width:335,
         marginRight:20,
         marginLeft:20,
-        marginTop: 20,
         flex: 6,
-        // backgroundColor:"red",
+        height:90,
+        marginTop:5
         
     },
     newAccount:{
@@ -15,11 +15,18 @@ export const styles = StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
         backgroundColor:"yellow",
-        height:100,
+        height:90,
+        
 
     },
     newAccountText:{
-        fontSize:20
+        fontSize:20,
+        textAlign:"left",
+        // backgroundColor:"red",
+        // height:90,
+        marginLeft:10
+
+    
     },
 })
       

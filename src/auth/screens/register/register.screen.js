@@ -40,7 +40,7 @@ export class Register extends Component {
                     <RegisterForm name={true} mail={true} password={true}/>
                 </Form>
 
-                <Button  buttonStyles={newAccountButtonStyles} buttonText="إنشاء حساب جديد"/>
+                <Button  buttonStyles={newAccountButtonStyles} buttonText="إنشاء حساب جديد"  nextScreen="HomeStackNavigator" navigation={this.props.navigation}/>
                 <Policy label="create new account" />
             </View>
             

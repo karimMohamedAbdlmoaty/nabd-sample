@@ -247,7 +247,7 @@ const MainNavigator = createStackNavigator(
     }
 )
 
-export const Router = createStackNavigator(
+export const Nabd = createStackNavigator(
     {
         MainNavigator:{
             screen: MainNavigator,

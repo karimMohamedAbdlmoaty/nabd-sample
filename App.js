@@ -11,30 +11,35 @@ import MyResources from "./src/components/my-resources";
 import MyAccount from "./src/components/my-account";
 import Sports from "./src/components/sports";
 import Magazines from "./src/components/magazines";
-import {Router} from "./router";
+import {Nabd} from "./nabd";
 import {Register} from "./src/auth"
 
 import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
+import { Provider } from 'react-redux';
+import store from './src/store';
+
 
 
 class App extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        {/* <Register /> */}
-        {/* <Login /> */}
-        {/* <ChooseResources /> */}
-        {/* <ForgetPassword /> */}
-        {/* <HomePage /> */}
-        {/* <NewsItem /> */}
-        {/* <Resources /> */}
-        {/* <MyResources /> */}
-        {/* <MyAccount /> */}
-        {/* <Sports /> */}
-        {/* <Magazines /> */}
-        {/* <Register /> */}
-        <Router />
+        <Provider store={store} >
+          {/* <Register /> */}
+          {/* <Login /> */}
+          {/* <ChooseResources /> */}
+          {/* <ForgetPassword /> */}
+          {/* <HomePage /> */}
+          {/* <NewsItem /> */}
+          {/* <Resources /> */}
+          {/* <MyResources /> */}
+          {/* <MyAccount /> */}
+          {/* <Sports /> */}
+          {/* <Magazines /> */}
+          {/* <Register /> */}
+          <Nabd />
+        </Provider>
       </View>
     );
   }

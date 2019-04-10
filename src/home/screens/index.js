@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { View ,Text } from 'react-native';
-import Header from "./header";
-import FooterBar from "./footer-bar";
-import MainContent from "./main-content";
+import {Header} from "./header";
+import {MainContent} from "./main-content";
 
-const HomePage= ()=>{
+export const HomePage= ()=>{
     return(
         <View style={{ flex: 1, justifyContent:"center"}}>
 
@@ -17,4 +16,4 @@ const HomePage= ()=>{
   
 }
 
-export default HomePage;
+

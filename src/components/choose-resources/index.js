@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View , Text, StyleSheet ,TouchableOpacity } from 'react-native';
-import Header from "./header"
+import Header from "./header";
+
 
 const ChooseResources= ({navigation})=>{
     handleLogin = ()=>{
@@ -17,6 +18,7 @@ const ChooseResources= ({navigation})=>{
                 <View style={styles.chooseYourResources}>
                     <Text style={styles.chooseYourResourcesText}>قم باختيار مصادرك المفضلة</Text>
                     <Text style={styles.chooseYourResourcesText}>وتابع آخر الأخبار لحظة بلحظة</Text>
+
                 </View>
 
                 <View style={styles.receiveNotifications}>

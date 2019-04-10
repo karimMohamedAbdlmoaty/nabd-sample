@@ -1,18 +1,18 @@
-import {GET_AUTH_STATE} from './auth.type';
+// import {GET_AUTH_STATE} from './home.type';
 
 
 export const initialState = {
-    isPendingAuthState: "ok",
-    property:333
+    news: "newssssss",
+    property:"fdjfdj"
 };
-export default authReducer = (state = initialState, action = {}) => {
+export default homeReducer = (state = initialState, action = {}) => {
     switch (action.type) {
-        case GET_AUTH_STATE.PENDING:
-           return {
-               ...state,
-               isPendingAuthState: true,
-            }
-        break;
+        // case GET_AUTH_STATE.PENDING:
+        //    return {
+        //        ...state,
+        //        isPendingAuthState: true,
+        //     }
+        // break;
 
         // case GET_AUTH_STATE.PENDING:
         //     return {

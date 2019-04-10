@@ -24,8 +24,7 @@ import store from './src/store';
 class App extends Component {
   render() {
     return (
-      <View style={{flex: 1}}>
-        <Provider store={store} >
+        <Provider store={store} style={{flex: 1}} >
           {/* <Register /> */}
           {/* <Login /> */}
           {/* <ChooseResources /> */}
@@ -40,7 +39,6 @@ class App extends Component {
           {/* <Register /> */}
           <Nabd />
         </Provider>
-      </View>
     );
   }
 }

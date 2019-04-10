@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator , createTabNavigator } from 'react-navigation';
 import ChooseResources from "./src/components/choose-resources";
 import NewsItem from "./src/components/news-item";
-import Home from "./src/components/home";
+import {HomePage} from "./src/home/screens";
 import MyResources from "./src/components/my-resources";
 import MyAccount from "./src/components/my-account";
 import Sports from "./src/components/sports";
@@ -47,10 +47,10 @@ const sharedRoutes = createStackNavigator(
 
 const HomeStackNavigator = createStackNavigator(
     {
-        Home:{
-            screen: Home,
+        HomePage:{
+            screen: HomePage,
             navigationOptions: {
-                title: "Home",
+                title: "HomePage",
             },
         },
     },

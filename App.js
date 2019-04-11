@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import Login from "./src/components/login";
 //mport Register from "./src/components/registration";
-import ChooseResources from "./src/components/choose-resources";
+import {ChooseResources} from "./src/auth/screens/choose-resources/choose-resources.screen"
 import ForgetPassword from "./src/components/forget-password";
-import NewsItem from "./src/components/news-item";
 import Resources from "./src/components/resources";
 import HomePage from './src/components/home';
 import MyResources from "./src/components/my-resources";
@@ -13,6 +12,8 @@ import Sports from "./src/components/sports";
 import Magazines from "./src/components/magazines";
 import {Nabd} from "./nabd";
 import {Register} from "./src/auth"
+import {Landing} from "./src/auth/screens/landing/landing.screen"
+
 
 import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
@@ -26,6 +27,7 @@ class App extends Component {
     return (
         <Provider store={store} style={{flex: 1}} >
           {/* <Register /> */}
+          {/* <Landing /> */}
           {/* <Login /> */}
           {/* <ChooseResources /> */}
           {/* <ForgetPassword /> */}

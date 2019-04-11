@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStackNavigator , createTabNavigator } from 'react-navigation';
-import ChooseResources from "./src/components/choose-resources";
-import NewsItem from "./src/components/news-item";
+import {Landing} from "./src/auth/screens/landing";
+import {ChooseResources} from "./src/auth/screens/choose-resources/choose-resources.screen";
+
 import {HomePage} from "./src/home/screens";
 import MyResources from "./src/components/my-resources";
 import MyAccount from "./src/components/my-account";
@@ -210,10 +211,10 @@ const TabNavigation = createTabNavigator({
 
 const MainNavigator = createStackNavigator(
     {
-        ChooseResources:{
-            screen: ChooseResources,
+        Landing:{
+            screen: Landing,
             navigationOptions: {
-                title: "ChooseResources",
+                title: "Landing",
 
             },
 
@@ -226,10 +227,10 @@ const MainNavigator = createStackNavigator(
             },
         },
 
-        NewsItem:{
-            screen: NewsItem,
+        ChooseResources:{
+            screen: ChooseResources,
             navigationOptions: {
-                title: "NewsItem",
+                title: "ChooseResources",
             },
         },
 

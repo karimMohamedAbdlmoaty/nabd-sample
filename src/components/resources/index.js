@@ -5,21 +5,9 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 
 const Resources= ({navigation})=>{
-    const sourcesData= [
-        {sourceLabel:" ONTV قناة"         ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:true  , sourceIcon:"ios-flag"  },
-        {sourceLabel:"قناة الحياة"        ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:true  , sourceIcon:"ios-globe" },
-        {sourceLabel:"قناة العربية - مصر" ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:false , sourceIcon:"ios-football" },
-        {sourceLabel:" TeN قناة"          ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:true  , sourceIcon:"ios-flag" },
-        {sourceLabel:"قناة الغد"          ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:true  , sourceIcon:"ios-globe" },
-        {sourceLabel:"وكالة أنباء أونا"   ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:false , sourceIcon:"ios-globe" },
-        {sourceLabel:"بوابة الأهرام"       ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:true  , sourceIcon:"ios-globe" },
-        {sourceLabel:"قناة الحياة"        ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:true  , sourceIcon:"ios-globe" },
-        {sourceLabel:"قناة الحياة"        ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:false , sourceIcon:"ios-globe" },
-        {sourceLabel:"قناة الحياة"        ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:true  , sourceIcon:"ios-globe" },
-        {sourceLabel:"قناة الحياة"        ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:false , sourceIcon:"ios-globe" },
-        {sourceLabel:"قناة الحياة"        ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:true  , sourceIcon:"ios-globe" },
-        {sourceLabel:"قناة الحياة"        ,followers:"متابع 2,025,525" , subTitle:"رقم كذا في مصر " , checked:true  , sourceIcon:"ios-globe" },
-    ];
+    const sourcesData= navigation.state.params.item
+    console.log("navigation",navigation.state.params.item)
+
     return(
         <View style={styles.container}>
             <Header  navigation={navigation}/>

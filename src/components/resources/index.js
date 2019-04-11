@@ -6,7 +6,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 const Resources= ({navigation})=>{
     const sourcesData= navigation.state.params.item
-    console.log("navigation",navigation.state.params.item)
+    const catId= navigation.state.params.catId
+    console.log("navigation",navigation.state.params.catId)
 
     return(
         <View style={styles.container}>
@@ -19,14 +20,14 @@ const Resources= ({navigation})=>{
                         <View style={styles.resourceImage}>
                             {!item.checked && 
                             <View style={styles.unCheckedContainer}>
-                                <TouchableOpacity style={styles.unChecked}>
+                                <TouchableOpacity style={styles.unChecked} onPress={()=>handleResources()}>
                                     <Text>إضافة</Text>
                                     <Icon name="ios-add" size={30} color="#2C8BC9" />
                                 </TouchableOpacity>
                             </View> }
 
                             {item.checked && 
-                            <TouchableOpacity style={styles.checkedContainer}>
+                            <TouchableOpacity style={styles.checkedContainer} onPress={()=>handleResources()}>
                                 <View style={styles.checked}>
                                     <Icon style={styles.checkedIcon} name="ios-checkmark" size={30} color="white" />
                                 </View>

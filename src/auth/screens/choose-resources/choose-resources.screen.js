@@ -9,14 +9,14 @@ import store from '../../../store';
 
 
 class ChooseResourcesScreen extends React.Component{
-    handleResources = (item)=>{
-        this.props.navigation.navigate('Resources',{item})
+    handleResources = (item,catId)=>{
+        this.props.navigation.navigate('Resources',{item,catId})
     };
 
 
     componentDidMount(){
         const sourcesData= [
-            {id:1,  categoryLabel:"مصر"          , categoryIcon:"ios-flag"       ,categoryResources: [
+            {catId:1,  categoryLabel:"مصر"          , categoryIcon:"ios-flag"       ,categoryResources: [
                 {sourceLabel:" ONTV قناة"         ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في مصر " , checked:true ,id:13},
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في مصر " , checked:true ,id:14  },
                 {sourceLabel:"قناة العربية - مصر" ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في مصر " , checked:false,id:15 },
@@ -34,7 +34,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في مصر " , checked:true ,id:27  },
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في مصر " , checked:true ,id:28 },
             ] },
-            {id:2,  categoryLabel:"مصادر عالمية" , categoryIcon:"ios-globe"      ,categoryResources: [
+            {catId:2,  categoryLabel:"مصادر عالمية" , categoryIcon:"ios-globe"      ,categoryResources: [
                 {sourceLabel:" CNN قناة"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:29 },
                 {sourceLabel:"قناة الجزيرة"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true ,id:30  },
                 {sourceLabel:"قناة العربية "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false,id:31 },
@@ -52,7 +52,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:43},
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:44},
             ]  },
-            {id:3,  categoryLabel:"رياضة"        , categoryIcon:"ios-football"   ,categoryResources: [
+            {catId:3,  categoryLabel:"رياضة"        , categoryIcon:"ios-football"   ,categoryResources: [
                 {sourceLabel:" sport قناة"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true   ,id:45},
                 {sourceLabel:"قناة الجزيرة الرياضية"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true   ,id:46},
                 {sourceLabel:"قناة العربية الرياضية "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false  ,id:47},
@@ -70,7 +70,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:59 },
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:60 },
             ]   },
-            {id:4,  categoryLabel:"تكنولوجيا"    , categoryIcon:"ios-wifi"       ,categoryResources: [
+            {catId:4,  categoryLabel:"تكنولوجيا"    , categoryIcon:"ios-wifi"       ,categoryResources: [
                 {sourceLabel:"  قناةتكنولوجيا"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:61 },
                 {sourceLabel:"قناة الجزيرة تكنولوجيا"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:62 },
                 {sourceLabel:"قناة العربية الرياضية "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false ,id:63 },
@@ -88,7 +88,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true   ,id:75},
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true   ,id:76},
             ]   },
-            {id:5,  categoryLabel:"اقتصاد"       , categoryIcon:"ios-trending-up",categoryResources: [
+            {catId:5,  categoryLabel:"اقتصاد"       , categoryIcon:"ios-trending-up",categoryResources: [
                 {sourceLabel:"  قناة اقتصاد"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true   ,id:77},
                 {sourceLabel:"قناة الجزيرة اقتصاد"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true   ,id:78},
                 {sourceLabel:"قناة العربية اقتصاد "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false  ,id:79},
@@ -106,7 +106,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:91 },
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:92 },
             ]   },
-            {id:6,  categoryLabel:"عالم حواء"    , categoryIcon:"ios-basket"     ,categoryResources: [
+            {catId:6,  categoryLabel:"عالم حواء"    , categoryIcon:"ios-basket"     ,categoryResources: [
                 {sourceLabel:"  قناة المرأة"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:93 },
                 {sourceLabel:"قناة  المرأة٢"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true   ,id:94 },
                 {sourceLabel:"قناة العربية المرأة "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false ,id:95  },
@@ -124,7 +124,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true   ,id:107 },
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:108  },
             ]},
-            {id:7,  categoryLabel:"صحة"          , categoryIcon:"ios-heart"      ,categoryResources: [
+            {catId:7,  categoryLabel:"صحة"          , categoryIcon:"ios-heart"      ,categoryResources: [
                 {sourceLabel:"  قناة صحة"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:109 },
                 {sourceLabel:"2قناة صحة"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true   ,id:110},
                 {sourceLabel:"قناة العربية صحة "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false,id:111  },
@@ -142,7 +142,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:123 },
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:124 },
             ]   },
-            {id:8,  categoryLabel:"سيارات"       , categoryIcon:"ios-car"        ,categoryResources: [
+            {catId:8,  categoryLabel:"سيارات"       , categoryIcon:"ios-car"        ,categoryResources: [
                 {sourceLabel:"  قناة سيارات"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:125 },
                 {sourceLabel:"2قناة سيارات"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:126 },
                 {sourceLabel:"قناة العربية سيارات "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false ,id:127},
@@ -160,7 +160,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:139 },
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:140 },
             ]   },
-            {id:9,  categoryLabel:"منوعات"       , categoryIcon:"ios-albums"     ,categoryResources: [
+            {catId:9,  categoryLabel:"منوعات"       , categoryIcon:"ios-albums"     ,categoryResources: [
                 {sourceLabel:"  قناة منوعات"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:141 },
                 {sourceLabel:"2قناة منوعات"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:142 },
                 {sourceLabel:"قناة العربية منوعات "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false ,id:143 },
@@ -178,7 +178,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true ,id:156  },
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:157 },
             ]   },
-            {id:10, categoryLabel:"السعودية"     , categoryIcon:"ios-flag"       ,categoryResources: [
+            {catId:10, categoryLabel:"السعودية"     , categoryIcon:"ios-flag"       ,categoryResources: [
                 {sourceLabel:"  قناة السعودية"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:158 },
                 {sourceLabel:"2قناة السعودية"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:159 },
                 {sourceLabel:"قناة العربية السعودية "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false ,id:160 },
@@ -196,7 +196,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:171 },
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:172 },
             ]   },
-            {id:11, categoryLabel:"الكويت"       , categoryIcon:"ios-flag"       ,categoryResources: [
+            {catId:11, categoryLabel:"الكويت"       , categoryIcon:"ios-flag"       ,categoryResources: [
                 {sourceLabel:"  قناة الكويت"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true ,id:173  },
                 {sourceLabel:"2قناة الكويت"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true  ,id:174 },
                 {sourceLabel:"قناة العربية الكويت "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false  ,id:175},
@@ -214,7 +214,7 @@ class ChooseResourcesScreen extends React.Component{
                 {sourceLabel:"بوابة الأهرام"       ,followers:"مثابع 4,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:186  },
                 {sourceLabel:"قناة الحياة"        ,followers:"مثابع 7,025,525" , subTitle:"رقم كذا في العالم " , checked:true  ,id:187  },
             ]   },
-            {id:12, categoryLabel:"اليمن"        , categoryIcon:"ios-flag"       ,categoryResources: [
+            {catId:12, categoryLabel:"اليمن"        , categoryIcon:"ios-flag"       ,categoryResources: [
                 {sourceLabel:"  قناة اليمن"          ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true   ,id:188 },
                 {sourceLabel:"2قناة اليمن"        ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في العالم " , checked:true     ,id:189   },
                 {sourceLabel:"قناة العربية اليمن "       ,followers:"مثابع 2,525,125" , subTitle:"رقم كذا في العالم " , checked:false ,id:190  },
@@ -255,7 +255,7 @@ class ChooseResourcesScreen extends React.Component{
                         data={data}
                         renderItem={({item}) => 
                             <View style={styles.sourceItem}>
-                                <View style={styles.iconItem}><TouchableOpacity onPress={()=>this.handleResources(item.categoryResources)}><Icon name="ios-arrow-back" size={20} color="#353333" /></TouchableOpacity></View>
+                                <View style={styles.iconItem}><TouchableOpacity onPress={()=>this.handleResources(item.categoryResources,item.catId)}><Icon name="ios-arrow-back" size={20} color="#353333" /></TouchableOpacity></View>
                                 <View style={styles.iconText}><Text style={styles.iconTextContent}>{item.categoryLabel}</Text></View>           
                                 <View style={styles.iconItemTwo}><Icon name={item.categoryIcon} size={30} color="red" /></View>
                             </View>

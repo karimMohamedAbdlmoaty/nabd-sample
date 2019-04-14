@@ -2,8 +2,20 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 
 
-const Header= ({navigation})=>{
+const Header= ({navigation,allResources})=>{
     handleHome = ()=>{
+        const change = allResources.map((category)=> {
+            return category.categoryResources.filter((item)=>item.checked==true)
+        })
+        
+        const changewww = allResources.map((category)=> {
+            return category.categoryResources.map((item)=>item.id)
+        })
+        
+
+        console.log("changechangechange",change)
+        console.log("rrrrrrrrrrrrr",changewww)
+ 
         navigation.navigate('TabNavigation')
 
     }

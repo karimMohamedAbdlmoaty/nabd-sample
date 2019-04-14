@@ -1,65 +1,96 @@
 import React, { Component } from 'react';
 import { View ,Text , StyleSheet ,FlatList,TouchableOpacity ,Image} from 'react-native';
-import Header from "./header"
-import Icon from 'react-native-vector-icons/Ionicons'
+import Header from "./header";
+import Icon from 'react-native-vector-icons/Ionicons';
+import * as resourcesActions from '../../auth/auth.action';
+import store from '../../store';
+import { connect } from 'react-redux';
 
+class Resources extends React.Component{
+    handleResources=(itemId)=>{
+        store.dispatch(resourcesActions.changeResourcesSuccess(this.props.navigation.state.params.catId,itemId))
+    }
+    
+    // componentWillMount(){
+    //     for (let index = 0; index < this.props.allResources.length; index++) {
+    //        if (this.props.allResources[index].catId==this.props.navigation.state.params.catId) {
+    //            let catIndex = index
+    //         //    console.log("catIndex",catIndex)
+    //        } 
+    //     }
+    // }
 
-const Resources= ({navigation})=>{
-    const sourcesData= navigation.state.params.item
-    const catId= navigation.state.params.catId
-    console.log("navigation",navigation.state.params.catId)
+    render(){
+        let catIndex = null
+        for (let index = 0; index < this.props.allResources.length; index++) {
+            if (this.props.allResources[index].catId ==this.props.navigation.state.params.catId) {
+                catIndex = index
+            } 
+        }
 
-    return(
-        <View style={styles.container}>
-            <Header  navigation={navigation}/>
-            <View style={styles.body}>
-                <View style={styles.bodyTextContainer}><Text style={styles.bodyText}>قنوات تلزيونية</Text></View>
-                <FlatList
-                    data={sourcesData}
-                    renderItem={({item}) => 
-                        <View style={styles.resourceImage}>
-                            {!item.checked && 
-                            <View style={styles.unCheckedContainer}>
-                                <TouchableOpacity style={styles.unChecked} onPress={()=>handleResources()}>
-                                    <Text>إضافة</Text>
-                                    <Icon name="ios-add" size={30} color="#2C8BC9" />
-                                </TouchableOpacity>
-                            </View> }
-
-                            {item.checked && 
-                            <TouchableOpacity style={styles.checkedContainer} onPress={()=>handleResources()}>
+        const sourcesData= this.props.allResources[catIndex].categoryResources
+        console.log("first resource checked", sourcesData[0].checked)
+    
+        return(
+            <View style={styles.container}>
+                <Header  navigation={this.props.navigation}/>
+                <View style={styles.body}>
+                    <View style={styles.bodyTextContainer}><Text style={styles.bodyText}>قنوات تلزيونية</Text></View>
+                    <FlatList
+                        data={sourcesData}
+                        extraData={sourcesData}
+                        renderItem={({item}) => 
+                            <View style={styles.resourceImage}>
+                                {!item.checked && 
+                                <View style={styles.unCheckedContainer}>
+                                    <TouchableOpacity style={styles.unChecked} onPress ={()=>this.handleResources(item.id)}>
+                                        <Text>إضافة</Text>
+                                        <Icon name="ios-add" size={30} color="#2C8BC9" />
+                                    </TouchableOpacity>
+                                </View> }
+    
+                                {item.checked && 
+                                <TouchableOpacity style={styles.checkedContainer} onPress ={()=>this.handleResources(item.id)}>
                                 <View style={styles.checked}>
-                                    <Icon style={styles.checkedIcon} name="ios-checkmark" size={30} color="white" />
+                                        <Icon style={styles.checkedIcon} name="ios-checkmark" size={30} color="white" />
+                                    </View>
+                                </TouchableOpacity>}
+    
+                                <View style={styles.resourceTexts}>
+                                    <Text style={styles.iconTextContentOne}>{item.sourceLabel}</Text>
+                                    <Text style={styles.iconTextContentThree}>{item.subTitle}</Text>
+                                    <Text style={styles.iconTextContentTwo}>{item.followers}</Text>
+                                </View>   
+    
+                                <View style={styles.iconItem}>
+                                    {/* <Icon name={item.sourceIcon} size={30} color="red" /> */}
+                                    <Image
+                                        style={{width: 45, height: 30}}
+                                        source={{uri: "https://www.e3lam.org/wp-content/uploads/2018/01/71564-اخبار-اليوم-780x405.jpg"}}
+                                    />
                                 </View>
-                            </TouchableOpacity>}
-
-                            <View style={styles.resourceTexts}>
-                                <Text style={styles.iconTextContentOne}>{item.sourceLabel}</Text>
-                                <Text style={styles.iconTextContentThree}>{item.subTitle}</Text>
-                                <Text style={styles.iconTextContentTwo}>{item.followers}</Text>
-                            </View>   
-
-                            <View style={styles.iconItem}>
-                                {/* <Icon name={item.sourceIcon} size={30} color="red" /> */}
-                                <Image
-                                    style={{width: 45, height: 30}}
-                                    source={{uri: "https://www.e3lam.org/wp-content/uploads/2018/01/71564-اخبار-اليوم-780x405.jpg"}}
-                                />
                             </View>
-                        </View>
-                    }
-
-                />
+                        }
+    
+                    />
+                </View>
+    
             </View>
-
-        </View>
-
-    );
+    
+        );
+        }
+    
   
 }
 
 
-export default Resources;
+
+const mapStateToProps = state => ({
+    allResources: state.resources_data.resources,
+});
+
+export default connect(mapStateToProps,null)(Resources);
+
 
 const styles = StyleSheet.create({
     container:{

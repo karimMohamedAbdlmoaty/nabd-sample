@@ -9,12 +9,12 @@ import store from '../../../store';
 
 
 class ChooseResourcesScreen extends React.Component{
-    handleResources = (item,catId)=>{
-        this.props.navigation.navigate('Resources',{item,catId})
+    handleResources = (catId)=>{
+        this.props.navigation.navigate('Resources',{catId})
     };
 
 
-    componentDidMount(){
+    componentWillMount(){
         const sourcesData= [
             {catId:1,  categoryLabel:"مصر"          , categoryIcon:"ios-flag"       ,categoryResources: [
                 {sourceLabel:" ONTV قناة"         ,followers:"مثابع 1,015,585" , subTitle:"رقم كذا في مصر " , checked:true ,id:13},
@@ -239,23 +239,24 @@ class ChooseResourcesScreen extends React.Component{
                 store.dispatch(resourcesActions.loadResourcesSuccess(sourcesData))
             }
         )
+
+
     }
 
     render(){
-        console.log("this.props.allState",this.props.allResources)
+        console.log("eeeeeeee",this.props.allResources)
         const data = this.props.allResources
+        
 
         return(
             <View style={styles.container}>
-                <Header  navigation={this.props.navigation}/>
-                {/* {this.props.allState} */}
-
+                <Header  navigation={this.props.navigation} allResources={this.props.allResources}/>
                 <View style={styles.body}>
                     <FlatList
                         data={data}
                         renderItem={({item}) => 
                             <View style={styles.sourceItem}>
-                                <View style={styles.iconItem}><TouchableOpacity onPress={()=>this.handleResources(item.categoryResources,item.catId)}><Icon name="ios-arrow-back" size={20} color="#353333" /></TouchableOpacity></View>
+                                <View style={styles.iconItem}><TouchableOpacity onPress={()=>this.handleResources(item.catId)}><Icon name="ios-arrow-back" size={20} color="#353333" /></TouchableOpacity></View>
                                 <View style={styles.iconText}><Text style={styles.iconTextContent}>{item.categoryLabel}</Text></View>           
                                 <View style={styles.iconItemTwo}><Icon name={item.categoryIcon} size={30} color="red" /></View>
                             </View>

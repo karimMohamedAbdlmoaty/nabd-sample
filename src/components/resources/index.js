@@ -7,19 +7,20 @@ import store from '../../store';
 import { connect } from 'react-redux';
 
 class Resources extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state={
+            item:{}
+
+        }
+        this.handleResources = this.handleResources.bind(this);
+    }
+
     handleResources=(itemId)=>{
         store.dispatch(resourcesActions.changeResourcesSuccess(this.props.navigation.state.params.catId,itemId))
     }
     
-    // componentWillMount(){
-    //     for (let index = 0; index < this.props.allResources.length; index++) {
-    //        if (this.props.allResources[index].catId==this.props.navigation.state.params.catId) {
-    //            let catIndex = index
-    //         //    console.log("catIndex",catIndex)
-    //        } 
-    //     }
-    // }
-
     render(){
         let catIndex = null
         for (let index = 0; index < this.props.allResources.length; index++) {
@@ -37,8 +38,8 @@ class Resources extends React.Component{
                 <View style={styles.body}>
                     <View style={styles.bodyTextContainer}><Text style={styles.bodyText}>قنوات تلزيونية</Text></View>
                     <FlatList
-                        data={sourcesData}
-                        extraData={sourcesData}
+                        data={this.props.allResources[catIndex].categoryResources}
+                        extraData={this.props.allResources}
                         renderItem={({item}) => 
                             <View style={styles.resourceImage}>
                                 {!item.checked && 
